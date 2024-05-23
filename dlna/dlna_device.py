@@ -190,6 +190,7 @@ class DlnaDevice(object):
 
                 # Handle devices with a deviceList
                 if self.info['device']['deviceList']:
+                    self.uuid = self.info['device']['deviceList']['device']['UDN'][len("uuid:"):]
                     devlist = self.info['device']['deviceList'].toDict()
                     for dev in devlist['device']:
                         for service in dev['serviceList']['service']:
